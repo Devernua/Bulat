@@ -25,7 +25,7 @@ SECRET_KEY = '2-+!zms_0ud04)m!52)vl2fwk9qrc3!es-#mf+k!y56c4)g0ga'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['loringit.pythonanywhere.com']
 
 
 # Application definition

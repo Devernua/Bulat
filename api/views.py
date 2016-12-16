@@ -4,12 +4,15 @@ import json
 
 def get_json(request):
 	try:
-		requestJson = json.loads(request.body)
-	except:
-		raise Http404()
+	    requestJson = json.loads(request.body.decode())
+	except Exception:
+		return JsonResponse({"error": 404 })
+	#else:
+	#    return JsonResponse({"error": 404 })
 	#print(request.body)
+
 	if (request.method != "POST" or requestJson is None):
-		raise JsonResponse({"error": 404 }) 
+		return JsonResponse({"error": 404 })
 	#TODO: something with json
 	return JsonResponse(requestJson)
-		
+
