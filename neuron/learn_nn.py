@@ -2,17 +2,10 @@ import lasagne
 from lasagne import layers
 from lasagne.updates import nesterov_momentum
 from nolearn.lasagne import NeuralNet
-import theano.tensor as T
 
-import sys
-import os
-import gzip
-import pickle
 import numpy as np
 
 import pickle
-
-import inspect
 
 batch_size = 0
 
@@ -20,8 +13,8 @@ batch_size = 0
 def load_data():
     """Get data with labels, split into training, validation and test set."""
     with open("train.pickle", 'rb') as pickle_file:
-      X_train = np.array(pickle.load(pickle_file))
-    y_train = np.array(X_train)
+        x_train = np.array(pickle.load(pickle_file))
+    y_train = np.array(x_train)
 
     # with open("val.pickle", 'rb') as pickle_file:
     #   X_valid = pickle.load(pickle_file)
@@ -30,14 +23,14 @@ def load_data():
     # with open("test.pickle", 'rb') as pickle_file:
     #   X_test = pickle.load(pickle_file)
     # y_test = np.array(X_test)
-    
+
     global batch_size
-    batch_size = X_train.shape[1]
+    batch_size = x_train.shape[1]
 
     return dict(
-        X_train=X_train,
+        X_train=x_train,
         y_train=y_train,
-        num_examples_train=X_train.shape[0],
+        num_examples_train=x_train.shape[0],
         input_dim=batch_size,
         output_dim=batch_size,
     )
@@ -63,18 +56,18 @@ def learn_net(data):
 
         max_epochs=2000,
         verbose=1,
-        
+
         regression=True,
-        objective_loss_function=lasagne.objectives.squared_error
-        #custom_score=("validation score", lambda x, y: np.mean(np.abs(x - y)))
-        )
+        objective_loss_function=lasagne.objectives.squared_error,
+        # custom_score=("validation score", lambda x, y: np.mean(np.abs(x - y)))
+    )
     # Train the network
     net1.fit(data['X_train'], data['y_train'])
 
     return net1
 
 
-    # Try the network on new data
+# Try the network on new data
 def main():
     data = load_data()
     print("Got %i testing datasets." % len(data['X_train']))
@@ -82,6 +75,7 @@ def main():
     print("NET DONE")
     # print(dir(net))
     net.save_params_to("lev_nn")
+
 
 if __name__ == '__main__':
     main()

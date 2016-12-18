@@ -1,5 +1,4 @@
-# print("w8 pls...")
-
+'''
 from pynput.keyboard import Key, Listener
 import numpy as np
 import time
@@ -60,3 +59,4 @@ if __name__ == '__main__':
     print(np.array(data_created).shape)
     with open("train.pickle", 'wb') as pickle_file:
         pickle.dump(data_created, pickle_file)
+'''
