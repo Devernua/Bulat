@@ -16,6 +16,7 @@ import inspect
 
 batch_size = 0
 
+
 def load_data():
     """Get data with labels, split into training, validation and test set."""
     with open("train.pickle", 'rb') as pickle_file:
@@ -40,6 +41,7 @@ def load_data():
         input_dim=batch_size,
         output_dim=batch_size,
     )
+
 
 def learn_net(data):
     net1 = NeuralNet(
@@ -70,6 +72,7 @@ def learn_net(data):
     net1.fit(data['X_train'], data['y_train'])
 
     return net1
+
 
     # Try the network on new data
 def main():
