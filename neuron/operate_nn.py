@@ -90,9 +90,11 @@ from lasagne.updates import nesterov_momentum
 from nolearn.lasagne import NeuralNet
 
 import numpy as np
-from neuron import data_creation
+import data_creation
 
-def checkAttempt(data):
+def operate(data):
+    #data = [0.0592330098, 0.140761971, 0.0757750273, 0.119381011, 0.0651519895, 0.120247006, 0.0454769731]
+    
     batch_size = len(data)
 
     thres = 0.4
@@ -121,12 +123,12 @@ def checkAttempt(data):
                 objective_loss_function=lasagne.objectives.squared_error
                 # custom_score=("validation score", lambda x, y: np.mean(np.abs(x - y)))
                 )
-    net.load_params_from("lev_nn")
+    net.load_params_from("bulik_nn")
 
     net_answer = net.predict([data])
     result = np.linalg.norm(data - net_answer)
     
     if result < thres:
-        return {'result': True}
+        print("Cool")
     else :
-        return {'result': False}
+        print("Shit")
