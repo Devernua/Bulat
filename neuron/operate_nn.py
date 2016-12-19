@@ -90,7 +90,6 @@ from lasagne.updates import nesterov_momentum
 from nolearn.lasagne import NeuralNet
 
 import numpy as np
-import data_creation
 
 def operate(data):
     #data = [0.0592330098, 0.140761971, 0.0757750273, 0.119381011, 0.0651519895, 0.120247006, 0.0454769731]
