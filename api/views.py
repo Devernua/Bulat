@@ -11,13 +11,10 @@ def get_json(request):
         requestJson = json.loads(request.body.decode())
     except Exception:
         return JsonResponse({"error": 404})
-    #else:
-    #    return JsonResponse({"error": 404 })
-    #print(request.body)
 
-    if (request.method != "POST" or requestJson is None):
+    if request.method != "POST" or requestJson is None:
         return JsonResponse({"error": 404})
-    #TODO: something with json
+    # TODO: something with json
     return JsonResponse(requestJson)
 
 
@@ -26,14 +23,10 @@ def get_check(request):
         requestJson = json.loads(request.body.decode())
     except Exception:
         return JsonResponse({"error": 404})
-    # else:
-    #    return JsonResponse({"error": 404 })
-    # print(request.body)
 
-    if (request.method != "POST" or requestJson is None):
+    if request.method != "POST" or requestJson is None:
         return JsonResponse({"error": 404})
-    # TODO: something with json
-    
+
     return JsonResponse({"result": op.operate(requestJson["dataSet"])})
 
 
@@ -42,15 +35,10 @@ def get_train(request):
         requestJson = json.loads(request.body.decode())
     except Exception:
         return JsonResponse({"error": 404})
-    # else:
-    #    return JsonResponse({"error": 404 })
-    # print(request.body)
 
-    if (request.method != "POST" or requestJson is None):
+    if request.method != "POST" or requestJson is None:
         return JsonResponse({"error": 404})
-    # TODO: something with json
-    
-    dc.makeDataFile(requestJson["trainingSet"])
-    
-    return JsonResponse(ln.train())
 
+    dc.makeDataFile(requestJson["trainingSet"])
+
+    return JsonResponse(ln.train())

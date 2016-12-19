@@ -75,4 +75,4 @@ def train():
     print("NET DONE")
     # print(dir(net))
     net.save_params_to("/home/loringit/Bulat/neuron/bulik_nn")
-    return {"result" : "Neural Network trained"}
+    return {"result": "Neural Network trained"}
