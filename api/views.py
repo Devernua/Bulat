@@ -34,7 +34,7 @@ def get_check(request):
         return JsonResponse({"error": 404})
     # TODO: something with json
     
-    return JsonResponse(op.operate(requestJson["dataSet"]))
+    return JsonResponse({"result": op.operate(requestJson["dataSet"])})
 
 
 def get_train(request):

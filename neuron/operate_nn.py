@@ -122,12 +122,12 @@ def operate(data):
                 objective_loss_function=lasagne.objectives.squared_error
                 # custom_score=("validation score", lambda x, y: np.mean(np.abs(x - y)))
                 )
-    net.load_params_from("bulik_nn")
+    net.load_params_from("/home/loringit/Bulat/neuron/bulik_nn")
 
     net_answer = net.predict([data])
     result = np.linalg.norm(data - net_answer)
-    
+    #return result < thres
     if result < thres:
-        print("Cool")
+        return "true"
     else :
-        print("Shit")
+        return "false"

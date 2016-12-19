@@ -1,12 +1,13 @@
+-f /usr/share/pip-wheels
 Django==1.10.4
 gdbn==0.1
 gnumpy==0.2
 joblib==0.10.3
 Lasagne==0.2.dev1
 nolearn==0.6.0
-numpy==1.11.2
+numpy==1.11.3
 scikit-learn==0.18.1
 scipy==0.18.1
 six==1.10.0
 tabulate==0.7.7
-Theano==0.8.2
+Theano==0.9.0.dev4

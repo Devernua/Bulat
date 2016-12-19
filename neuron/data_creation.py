@@ -64,5 +64,5 @@ if __name__ == '__main__':
 import pickle
 
 def makeDataFile(data):
-    with open("train.pickle", 'wb') as pickle_file:
+    with open("/home/loringit/Bulat/neuron/train.pickle", 'wb') as pickle_file:
         pickle.dump(data, pickle_file)

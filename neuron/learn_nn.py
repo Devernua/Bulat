@@ -12,7 +12,7 @@ batch_size = 0
 
 def load_data():
     """Get data with labels, split into training, validation and test set."""
-    with open("train.pickle", 'rb') as pickle_file:
+    with open("/home/loringit/Bulat/neuron/train.pickle", 'rb') as pickle_file:
         x_train = np.array(pickle.load(pickle_file))
     y_train = np.array(x_train)
 
@@ -74,5 +74,5 @@ def train():
     net = learn_net(data)
     print("NET DONE")
     # print(dir(net))
-    net.save_params_to("bulik_nn")
+    net.save_params_to("/home/loringit/Bulat/neuron/bulik_nn")
     return {"result" : "Neural Network trained"}
