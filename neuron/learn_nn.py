@@ -68,14 +68,11 @@ def learn_net(data):
 
 
 # Try the network on new data
-def main():
+def train():
     data = load_data()
     print("Got %i testing datasets." % len(data['X_train']))
     net = learn_net(data)
     print("NET DONE")
     # print(dir(net))
-    net.save_params_to("lev_nn")
-
-
-if __name__ == '__main__':
-    main()
+    net.save_params_to("bulik_nn")
+    return {"result" : "Neural Network trained"}

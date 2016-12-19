@@ -60,3 +60,9 @@ if __name__ == '__main__':
     with open("train.pickle", 'wb') as pickle_file:
         pickle.dump(data_created, pickle_file)
 '''
+
+import pickle
+
+def makeDataFile(data):
+    with open("train.pickle", 'wb') as pickle_file:
+        pickle.dump(data, pickle_file)

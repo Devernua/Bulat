@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from django.http import JsonResponse, Http404
 import json
+from neuron import operate_nn as op
+from neuron import data_creation as dc
+from neuron import learn_nn as ln
 
 
 def get_json(request):
@@ -30,7 +33,8 @@ def get_check(request):
     if (request.method != "POST" or requestJson is None):
         return JsonResponse({"error": 404})
     # TODO: something with json
-    return JsonResponse(requestJson)
+    
+    return JsonResponse(op.checkAttempt(requestJson["dataSet"]))
 
 
 def get_train(request):
@@ -45,5 +49,8 @@ def get_train(request):
     if (request.method != "POST" or requestJson is None):
         return JsonResponse({"error": 404})
     # TODO: something with json
-    return JsonResponse(requestJson)
+    
+    dc.makeDataFile(requestJson["trainingSet"])
+    
+    return JsonResponse(ln.train())
 
